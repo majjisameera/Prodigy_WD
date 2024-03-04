@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #stopwatch {
+            font-size: 2em;
+            margin: 20px;
+        }
+
+        #buttons {
+            margin-top: 20px;
+        }
+
+        #lapTimes {
+            text-align: left;
+            max-width: 300px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow-y: auto;
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="stopwatch">00:00:00</div>
+
+<div id="buttons">
+    <button onclick="startStop()">Start/Stop</button>
+    <button onclick="reset()">Reset</button>
+    <button onclick="lap()">Lap</button>
+</div>
+
+<div id="lapTimes"></div>
+
+<script>
+    let timer;
+    let isRunning = false;
+    let startTime;
+    let lapCounter = 1;
+
+    function startStop() {
+        if (isRunning) {
+            clearInterval(timer);
+            isRunning = false;
+        } else {
+            startTime = new Date().getTime() - (lapCounter > 1 ? lapCounter - 1 : 0) * 1000;
+            timer = setInterval(updateTime, 1000);
+            isRunning = true;
+        }
+    }
+
+    function reset() {
+        clearInterval(timer);
+        isRunning = false;
+        document.getElementById("stopwatch").textContent = "00:00:00";
+        document.getElementById("lapTimes").innerHTML = "";
+        lapCounter = 1;
+    }
+
+    function lap() {
+        if (isRunning) {
+            const lapTime = calculateLapTime();
+            const lapTimesContainer = document.getElementById("lapTimes");
+            const lapElement = document.createElement("div");
+            lapElement.textContent = `Lap ${lapCounter}: ${lapTime}`;
+            lapTimesContainer.prepend(lapElement);
+            lapCounter++;
+        }
+    }
+
+    function updateTime() {
+        const currentTime = new Date().getTime();
+        const elapsedTime = currentTime - startTime;
+        const formattedTime = formatTime(elapsedTime);
+        document.getElementById("stopwatch").textContent = formattedTime;
+    }
+
+    function calculateLapTime() {
+        const currentTime = new Date().getTime();
+        const lapTime = currentTime - startTime;
+        return formatTime(lapTime);
+    }
+
+    function formatTime(time) {
+        const hours = Math.floor(time / (1000 * 60 * 60));
+        const minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((time % (1000 * 60)) / 1000);
+
+        return (
+            (hours < 10 ? "0" : "") + hours + ":" +
+            (minutes < 10 ? "0" : "") + minutes + ":" +
+            (seconds < 10 ? "0" : "") + seconds
+        );
+    }
+</script>
+
+</body>
+</html>
