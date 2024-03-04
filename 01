@@ -6,25 +6,220 @@
 <body>
   <div class="navbar" id="navbar">
     <a href="#" class="nav-item">Home</a>
+    <a href="#" class="nav-item">Genre</a>
     <a href="#" class="nav-item">About</a>
     <a href="#" class="nav-item">Services</a>
     <a href="#" class="nav-item">Contact</a>
   </div>
 
-  <!-- Your page content goes here -->
+<div class="books">
+   <h1> Tales & Texts </h1>
+<p> little world </p>
+</div>
+
+
+<form id="form"> 
+  <input type="search" id="query" name="q" placeholder="Search...">
+  <button>Search</button>
+</form>
+
+
+<div class="col">
+
+<div class="cont">
+    <div class="card">
+        <img alt="thriller" class="thril" src="https://imgix.bustle.com/uploads/image/2018/12/17/5af08cb1-ec12-47fa-b8f7-46c33ed14f75-thrillers.jpg?w=800&fit=crop&crop=faces&auto=format%2Ccompress&q=50&dpr=2">
+    </div>
+<div class="text">
+     <h1>Thriller with a plot twist !!!</h1>
+      </div>
+</div>
+
+
+<div class="cont1"> 
+    <div class="card">
+        <img alt="romance" class="love" src="https://www.chatelaine.com/wp-content/uploads/2019/02/romance-books-2019_feature.jpg" >
+    </div>
+<div class="text1">
+     <h1>Fantasy romance</h1>
+      </div>
+</div>    
+
+
+<div class="cont2"> 
+    <div class="card">
+        <img alt="fictional" class="fiction" src="https://learnworthy.net/wp-content/uploads/2020/04/the-top-15-best-science-fiction-books.jpg" >
+    </div>
+<div class="text2">
+     <h1>FICTION...because real life is terrible</h1>
+      </div>
+    </div> 
+
+</div> 
+
 
   <script>
 document.addEventListener('DOMContentLoaded', function() {
   const navbar = document.getElementById('navbar');
 
   window.addEventListener('scroll', function() {
-    if (window.scrollY > 50) {
-      navbar.style.backgroundColor = '#222';
+    if (window.scrollY > 10) {
+      navbar.style.backgroundColor = 'darkgoldenrod';
     } else {
-      navbar.style.backgroundColor = '#333';
+      navbar.style.backgroundColor = 'sienna ';
     }
   });
 });
 </script>
 </body>
 </html>
+
+
+
+
+
+CSS
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: dimgray;
+  padding: 15px;
+  text-align: center; 
+}
+
+.nav-item {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-item:hover {
+  background-color: darkgrey;
+  color: black;
+}
+
+.books{
+width:50%;
+margin:auto;
+margin-top: 70px;
+text-align:center;
+}
+
+.books h1{
+font-size: 36px;
+color: black;
+letter-spacing: 1.5px;
+font-weight: 800;
+margin-bottom: 3px;
+margin-top: 100px;
+text-align:center;
+
+}
+
+.books p{
+font-size: 18px;
+color: pink;
+line-height: 0.1;
+margin-bottom: 50px;
+}
+
+form {
+  width: 300px;
+  height: 40px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left:630px;
+}
+
+input {
+  font: 16px system-ui;
+  color: black;
+  height: 50;
+  width: 100%;
+  padding: 8px 12px;
+}
+
+button {
+  cursor: pointer;
+  width: 90px;
+  height: 50px;
+}
+
+.thril {
+  margin-top: 100;
+  margin-left: 60;
+  width: 500;
+  height: 500;
+  padding: 5px;
+}
+
+.love {
+  margin-top: 100;
+  margin-left: 0;
+  width: 530;
+  height: 450;
+  padding: 5px;
+}
+
+.fiction {
+  margin-top: 100;
+  margin-bottom: 100;
+  margin-left: 170;
+  width: 550;
+  height: 500;
+  padding: 5px;
+}
+
+.text {
+  color: #CD5C5C;
+  padding-left: 20px;
+  padding-top: 5%;
+  font: italic 10px "Fira Sans", serif;
+  float:left;
+}
+
+.cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+.cont1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+.cont2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+.text1 {
+  color: #CD5C5C;
+  padding-left: 20px;
+  padding-top: 5%;
+  font: italic 10px "Fira Sans", serif;
+  float:left;
+}
+
+.text2 {
+  color: #CD5C5C;
+  padding-left: 20px;
+  padding-top: 5%;
+  font: italic 10px "Fira Sans", serif;
+  float:left;
+}
+
+
